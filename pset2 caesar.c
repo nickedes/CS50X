@@ -4,7 +4,7 @@
 #include<string.h>
 int main(int argc, string argv[])
 {
- int k,i;
+int k,i;
  char c[100];
  string a;
  //taking string to be encrypted
@@ -56,4 +56,5 @@ int main(int argc, string argv[])
     printf("%c",c[i]);
  printf("\n");
  return 0;
+
 }
