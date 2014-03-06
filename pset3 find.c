@@ -15,10 +15,9 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
- 
 #include "helpers.h"
  
-// maximum amount of hay
+//  maximum amount of hay
 const int MAX = 65536;
  
 int main(int argc, string argv[])
