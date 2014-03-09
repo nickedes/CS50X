@@ -19,7 +19,7 @@
  
 #define LIMIT 65536
  
-int main(int argc, string argv[])
+int main( int argc, string argv[] )
 {
     //no. of command line arguments are neither 2 nor 3
     if (argc != 2 && argc != 3)
