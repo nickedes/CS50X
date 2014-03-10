@@ -4,7 +4,12 @@
 #include<string.h>
 int main(int argc, string argv[])
 {
-int k,i;
+ int k,i;
+ if(argc != 2)
+ {
+    printf("No key provided\n");
+    return 1;
+ }
  char c[100];
  string a;
  //taking string to be encrypted
@@ -56,5 +61,4 @@ int k,i;
     printf("%c",c[i]);
  printf("\n");
  return 0;
-
 }
