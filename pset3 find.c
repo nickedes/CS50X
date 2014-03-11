@@ -2,6 +2,7 @@
  * find.c
  *
  * Computer Science 50
+ * 
  * Problem Set 3
  *
  * Prompts user for as many as MAX values until EOF is reached,
