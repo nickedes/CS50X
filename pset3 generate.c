@@ -2,6 +2,7 @@
  * generate.c
  *
  * Computer Science 50
+ * 
  * Problem Set 3
  *
  * Generates pseudorandom numbers in [0,LIMIT), one per line.
