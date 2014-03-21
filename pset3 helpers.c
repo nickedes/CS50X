@@ -9,7 +9,8 @@
  */
         
 #include <cs50.h>
- #include "helpers.h"
+
+#include "helpers.h"
  
 /**
  * Returns true if value is in array of n values, else false.
