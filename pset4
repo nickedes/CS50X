@@ -32,5 +32,24 @@
 
 // lives
 #define LIVES 3
+// prototypes
+void initBricks(GWindow window);
+GOval initBall(GWindow window);
+GRect initPaddle(GWindow window);
+GLabel initScoreboard(GWindow window);
+void updateScoreboard(GWindow window, GLabel label, int points);
+GObject detectCollision(GWindow window, GOval ball);
+
+int main(void)
+{
+    // seed pseudorandom number generator
+    srand48(time(NULL));
+    
+    int ctr=0;
+    string gtype;
+    // instantiate window
+    GWindow window = newGWindow(WIDTH, HEIGHT);
+
+    // instantiate bricks
 
 
