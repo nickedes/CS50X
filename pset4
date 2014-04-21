@@ -158,4 +158,176 @@ initBricks(window);
                 {
                         // TODO
 
+                    removeGWindow(window,object);
+                    vely = -vely;
+                    --bricks;
+                    updateScoreboard(window, label,++points);
+                    move(ball, velocity, vely);
+                    
+                
+                }
+ 
+                // linger before moving again
+                else
+                {
+                move(ball, velocity, vely);
+                }          
+                
+                pause(10);
+            }
+        }
+    }
+      
+    // wait for click before exiting
+    waitForClick();
+
+    // game over
+    closeGWindow(window);
+    return 0;
+}
+
+    
+/**
+ * Initializes window with a grid of bricks.
+ */
+void initBricks(GWindow window)
+{
+    // TODO
+    int i,j,k=0,l=20;
+    for(i=0;i<ROWS;i++)
+    {
+        for(j=0;j<COLS;j++)
+        {
+            GRect rect = newGRect(k, l, 35, 10);
+            setFilled(rect, true);
+            if(i==0)
+            {
+                setColor(rect, "RED");
+            }
+            else if(i==1)
+            {
+                setColor(rect, "ORANGE");   
+            }
+            else if(i==2)
+            {
+                setColor(rect, "YELLOW");
+            }
+            else if(i==3)
+            {
+                setColor(rect, "GREEN");
+            }
+            else
+            {
+                setColor(rect, "CYAN");
+            }
+            add(window, rect);
+            k=k+40;
+        }
+        k=0;
+        l=l+26;
+   }
+   
+}
+
+/**
+ * Instantiates ball in center of window.  Returns ball.
+ */
+GOval initBall(GWindow window)
+{
+    // TODO
+    GOval circle = newGOval(200, 300, 10, 10);
+    setFilled(circle, true);
+    setColor(circle, "BLACK");
+    add(window, circle);
+    return circle;
+}
+
+/**
+ * Instantiates paddle in bottom-middle of window.
+ */
+GRect initPaddle(GWindow window)
+{
+    // TODO
+    GRect rect = newGRect(200, 550, 35, 10);
+    setFilled(rect, true);
+    setColor(rect, "BLACK");
+    add(window,rect);
+    return rect;
+}
+
+/**
+ * Instantiates, configures, and returns label for scoreboard.
+ */
+GLabel initScoreboard(GWindow window)
+{
+    // TODO
+    GLabel label = newGLabel("");
+    setFont(label, "SansSerif-36");
+    add(window, label);
+    return label;
+}
+
+/**
+ * Updates scoreboard's label, keeping it centered in window.
+ */
+void updateScoreboard(GWindow window, GLabel label, int points)
+{
+    // update label
+    char s[12];
+    sprintf(s, "%i", points);
+    setLabel(label, s);
+
+    // center label in window
+    double x = (getWidth(window) - getWidth(label)) / 2;
+    double y = (getHeight(window) - getHeight(label)) / 2;
+    setLocation(label, x, y);
+}
+
+/**
+ * Detects whether ball has collided with some object in window
+ * by checking the four corners of its bounding box (which are
+ * outside the ball's GOval, and so the ball can't collide with
+ * itself).  Returns object if so, else NULL.
+ */
+GObject detectCollision(GWindow window, GOval ball)
+{
+    // ball's location
+    double x = getX(ball);
+    double y = getY(ball);
+
+    // for checking for collisions
+    GObject object;
+
+    // check for collision at ball's top-left corner
+    object = getGObjectAt(window, x, y);
+    if (object != NULL)
+    {
+        return object;
+    }
+
+    // check for collision at ball's top-right corner
+    object = getGObjectAt(window, x + 2 * RADIUS, y);
+    if (object != NULL)
+    {
+        return object;
+    }
+
+    // check for collision at ball's bottom-left corner
+    object = getGObjectAt(window, x, y + 2 * RADIUS);
+    if (object != NULL)
+    {
+        return object;
+    }
+
+    // check for collision at ball's bottom-right corner
+    object = getGObjectAt(window, x + 2 * RADIUS, y + 2 * RADIUS);
+    if (object != NULL)
+    {
+        return object;
+    }
+
+    // no collision
+    return NULL;
+}
+
 
