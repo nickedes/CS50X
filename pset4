@@ -103,6 +103,8 @@ initBricks(window);
                 // if we heard one
                 if (event1 != NULL)
                 {
+
+                    pause(15);
                     // if the event was movement
                     if (getEventType(event1) == MOUSE_MOVED)
                     {
