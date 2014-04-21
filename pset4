@@ -51,5 +51,58 @@ int main(void)
     GWindow window = newGWindow(WIDTH, HEIGHT);
 
     // instantiate bricks
+initBricks(window);
+
+    // instantiate ball, centered in middle of window
+    GOval ball = initBall(window);
+
+    // instantiate paddle, centered at bottom of window
+    GRect paddle = initPaddle(window);
+
+    // instantiate scoreboard, centered in middle of window, just above ball
+    GLabel label = initScoreboard(window);
+
+    // number of bricks initially
+    int bricks = COLS * ROWS;
+
+    // number of lives initially
+    int lives = LIVES;
+
+    // number of points initially
+    int points = 0;
+    
+    int chk=0;
+    
+    double velocity = 4.0;
+    double vely = -4.0;
+    // keep playing until game over
+    // TODO
+    
+    while(lives > 0 && bricks > 0)
+    {
+        // check for mouse event
+        GEvent event=getNextEvent(MOUSE_EVENT);    
+        
+        // if we heard one
+        if (event != NULL)
+        {
+            //if the event was movement
+            if (getEventType(event) == MOUSE_CLICKED)
+            {       
+                // print click's coordinates
+                printf("%.0f,%.0f\n", getX(event), getY(event));   
+                chk=1;
+                pause(15);
+            }    
+                
+            if(chk==1)
+            {    
+                pause(5);
+                // check for mouse event
+                GEvent event1 = getNextEvent(MOUSE_EVENT);
+                // if we heard one
+                if (event1 != NULL)
+                {
+                    // if the event was movement
 
 
