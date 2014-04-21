@@ -6,4 +6,31 @@
 // Problem Set 4
 //standard libararies
 #include<stdio.h>
- 
+#define _XOPEN_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+// Stanford Portable Library
+#include "gevents.h"
+#include "gobjects.h"
+#include "gwindow.h"
+
+// height and width of game's window in pixels
+#define HEIGHT 600
+#define WIDTH 400
+
+// number of rows of bricks
+#define ROWS 5
+
+// number of columns of bricks
+#define COLS 10
+
+// radius of ball in pixels
+#define RADIUS 10
+
+// lives
+#define LIVES 3
+
+
