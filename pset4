@@ -104,5 +104,58 @@ initBricks(window);
                 if (event1 != NULL)
                 {
                     // if the event was movement
+                    if (getEventType(event1) == MOUSE_MOVED)
+                    {
+                        // ensure circle follows top cursor
+                        double x = getX(event1);
+                        if(x<=365)
+                            setLocation(paddle, x, 550);
+                         // move circle along x-axis
+                    }
+                }
+                pause(10);
+                                
+                 
+                GObject object = detectCollision(window, ball);
+                // bounce off right edge of window
+                if (getX(ball) + getWidth(ball) >= getWidth(window))
+                {
+                    velocity = -velocity;
+                    move(ball, velocity, vely);
+
+                }
+                // bounce off left edge of window
+                else if (getX(ball) <= 0)
+                {
+
+                    velocity = -velocity;
+                    move(ball, velocity, vely);
+
+                }
+               else if(getY(ball)<=0)
+                {
+                    vely = -vely;
+                    move(ball, velocity, vely);
+
+                }
+                else if(getY(ball) +getHeight(ball) >= getHeight(window))
+                {
+                    //vely = -vely;   
+                    
+                    lives--;
+                    chk=0;
+                    move(ball, velocity, vely);
+                    removeGWindow(window,ball);
+                    ball = initBall(window);
+                }
+                else if (object == paddle)
+                {
+                    vely= -vely;
+                    move(ball, velocity, vely);
+                    
+                }
+                else if(object !=NULL && !strcmp(getType(object),"GRect"))
+                {
+                        // TODO
 
 
