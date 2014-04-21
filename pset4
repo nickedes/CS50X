@@ -97,14 +97,13 @@ initBricks(window);
                 
             if(chk==1)
             {    
-                pause(5);
+                pause(10);
                 // check for mouse event
                 GEvent event1 = getNextEvent(MOUSE_EVENT);
                 // if we heard one
                 if (event1 != NULL)
                 {
 
-                    pause(15);
                     // if the event was movement
                     if (getEventType(event1) == MOUSE_MOVED)
                     {
