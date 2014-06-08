@@ -1,0 +1,29 @@
+0.  Pneumonoultramicroscopicsilicovolcanoconiosis is, according to the Oxford English Dictionary, "a word invented in imitation of polysyllabic medical terms, alleged to mean ‘a lung disease caused by the inhalation of very fine sand and ash dust (mostly volcanic silica ash dust)’ but occurring only as an instance of a very long word."
+1.  getrusage(RUSAGE_SELF, &before) returns resource usage statistics for the calling process measures in the "before" struct.
+2.  16
+3.  Use the getrusage() function to get the reference point before and after the fuction run, which can filter out the unrelevent resource usage outside the process.
+4.  The main use variable fp to load the txt file, and by using fgetc() to iterate through the characters in the fp. When the fgetc reads a alphabetical character or apostrophe inside a word (when index > 0), the main will use the index number to assign the scanned character into the word[].
+	If the fgetc() returns digit, the loop will consider it as not word, and use while loop to skip the character after the scanned one until the fgetc() return a space.
+	When the loop reads a space or other signs, it will be consider to a end of a words, and by ending the word array with '\0' and compare the word[] to the dictionary, the program will record the count for word found, word mispelled, resource usage for spelling check, and finally reset the index for the next word.
+5.  Use fscanf() might ends up with a string contains other signs, like comma, thus the result might not be listed in the dictionary for spelling check.
+6.  The const qualifier is used to tell C that the variable value can not change after initialisation. Since the word for check and the dictionary for reference shall be consistant during the spell checking process, it would be safer to declare the arguments as const for those functions.
+7.  I use a hash table to load the dictionary, by seperating the first few letters into diferent linked list (like the real dictionary).
+8.  ./speller austinpowers.txt
+	WORDS MISSPELLED: 644
+	WORDS IN DICTIONARY: 143091
+	WORDS IN TEXT: 19190
+	TIME IN load: 7.75
+	TIME IN check: 3.07
+	TIME IN size: 0.00
+	TIME IN unload: 0.01
+	TIME IN TOTAL: 10.82
+9.  I changed my algorithm and seperated the dictionary into more hash index by using 3 variables first ,second and third
+	WORDS MISSPELLED: 644
+	WORDS IN DICTIONARY: 143091
+	WORDS IN TEXT: 19190
+	TIME IN load: 1.22
+	TIME IN check: 0.15
+	TIME IN size: 0.00
+	TIME IN unload: 0.01
+	TIME IN TOTAL: 1.38   
+10. I believe there's a lot of NULL pointer in the hash table, and that's kind of waste.
