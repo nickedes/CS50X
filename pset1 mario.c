@@ -10,6 +10,7 @@ int main()
  printf("Height:");
  ht=GetInt();
  }
+ 
  while(!(ht>=0 && ht<=23));
  m=ht;
  z=2;
