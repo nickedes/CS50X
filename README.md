@@ -1,4 +1,4 @@
 CS50X
 =====
 
-My solutions to pset of CS50x
+My solutions to problem-sets of CS50x
