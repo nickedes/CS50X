@@ -4,7 +4,7 @@
     require("../includes/config.php"); 
 
     // if form was submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    if ($_SERVER["REQUEST_METHOD"] == "$_POST")
     {
         // validate submission
         if (empty($_POST["username"]))
