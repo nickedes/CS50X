@@ -46,7 +46,6 @@
                 if (count($rows) == 1)
                 {
                     $id = $rows[0]["id"];
-                    
                     $_SESSION["id"] = $id;
                     redirect("/");
                 }
