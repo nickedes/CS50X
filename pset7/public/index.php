@@ -3,7 +3,7 @@
     // configuration
     require("../includes/config.php"); 
 
-    // render portfolio
+    //render portfolio
     $rows = query("SELECT * FROM shares WHERE id = ?", $_SESSION["id"]);
     
     $positions = [];
