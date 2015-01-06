@@ -1,0 +1,47 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+	background-color:#FCFCFC;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: #ccc;
+}
+
+.feed_space{
+	margin-bottom: 2em;
+}
+
+.no_border_top > tbody tr td {
+	border-top: 0;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.room_above {
+	margin-top: 14em;
+}
+
+.room-above-7 {
+	margin-top: 7em;
+}
+
+.space-right {
+	margin-right: 3em;
+}
+
+
+
+
+
+
+
+
+
+
+
